@@ -1,0 +1,75 @@
+@import url('https://fonts.googleapis.com/css2?family=Italiana&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+:root{
+    --bg-dark-primary:#1b1d21;
+    --bg-dark-secondary:#212529;
+    --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+
+}
+
+
+*{
+    margin: 0px;
+    padding: 0px;
+}
+
+body,html{
+    background-color: var(--bg-dark-primary);
+    height: 100%;
+    color: white;
+    font-family: "Roboto", sans-serif;;
+}
+
+.flex{
+    display: flex;
+}
+
+.d-none{
+    display: none;
+}
+
+.container{
+    height: 100%;
+    gap: 20px;
+}
+
+.sidebar{
+    width: 250px;
+    background-color: var(--bg-dark-secondary);
+    padding: 5px;
+    
+}
+
+.sidebar-item{
+    padding: 10px;
+    margin-top: 10px;
+    box-shadow: var(--shadow);
+    transition: all 0.3s ease;
+}
+
+.sidebar-item:hover{
+    background-color: var(--bg-dark-primary);
+}
+
+.dropdown{
+    background-color: var(--bg-dark-primary);
+}
+.dropdown-item{
+    font-size:  12px;
+}
+
+.dropdown-item:hover{
+    background-color: var(--bg-dark-secondary);
+}
+
+.sidebar-header{
+    padding: 10px;
+    align-items: center;
+    gap: 20px;
+}
+
+.content{
+    background-color: var(--bg-dark-secondary);
+    height: 100%;
+    width: 80%;
+}
