@@ -94,43 +94,81 @@
                 <form action="" id="DutyReportsForm">
                     <h3>Duty Report Details</h3>
 
-                    <div class="row">
-                        <div class="col">
+                    <div class="form-group">
+                        <div class="label">
                             <label for="Date">Date of Report:</label>
                         </div>
-                        <div class="col">
+                        <div class="inputs">
                             <input type="date" name="DateOfReport" id="DateOfReport">
                         </div>
                     </div>
 
-                    <div class="row">
-                        <div class="col">
-                            <label for="StartOfShift">Start of Shift</label>
+                    <div class="form-group">
+                        <div class=label">
+                            <label for="StartOfShift">Start of Shift:</label>
                         </div>
-                        <div class="col">
+                        <div class="inputs">
                             <input type="time" name="StartOfShift" id="StartOfShift">
                         </div>
                     </div>
 
-                    <div class="row">
-                        <div class="col">
-                            <label for="10-15s">10-15s Processed</label>
+                    <div class="form-group">
+                        <div class="label">
+                            <label for="10-15s">10-15s Processed:</label>
                         </div>
-                        <div class="col">
+                        <div class="inputs">
                             <input type="number" name="10-15s" id="10-15s">
-                        </div>
-                        <div class="col">
-                            <button id="10-15Counter">+</button>
+                            
                         </div>
                     </div>
 
-                    <h3>General Duty Logs</h3>
-                    <div id="DutyLogsContainer">
-                        <!--Logs will go here.-->
+                    <div class="form-group">
+                        <div class="label">
+                            <label for="EndOfShift">End of Shift:</label>
+                        </div>
+                        <div class="inputs">
+                            <input type="time" name="EndOfShift" id="EndOfShift">
+                        </div>
                     </div>
 
+                    <div class="duty-logs-section">
+                        <h3>General Duty Logs</h3>
+                        <div id="DutyLogsContainer" id="GeneralDutyLogs">
+                            <!--Logs will go here.-->
+                            <div class="duty-log" id="">
+                                <p>Did something cool today woo</p>
+                                <button class="deleteLogBtn">&times;</button>
+                            </div>
+                        </div>
 
+                        <div class="addLog flex">
+                            <input type="text" name="NewDutyLog" id="NewDutyLog" placeholder="General Duties performed during your watch">
+                            <button id="addLogBtn">Add Log</button>
+                        </div>
+                    </div>
+                    <hr>
+
+                    <div class="duty-logs-section">
+                        <h3>Divisional Duty Logs</h3>
+                        <div id="DutyLogsContainer" id="DivisionalDutyLogs">
+                            <!--Logs will go here.-->
+                            <div class="duty-log" id="">
+                                <p>Did something cool today woo</p>
+                                <button class="deleteLogBtn">&times;</button>
+                            </div>
+                        </div>
+
+                        <div class="addLog flex">
+                            <input type="text" name="NewDutyLog" id="NewDutyLog" placeholder="Divisional Duties performed during your watch">
+                            <button id="addLogBtn">Add Log</button>
+                        </div>
+                    </div>
                 </form>
+                
+                <div class="output">
+                    <h3>Output Will Go here</h3>
+                    <input type="textarea" readonly id="Output">
+                </div>
             </div>
 
             
