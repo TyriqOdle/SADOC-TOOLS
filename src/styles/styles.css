@@ -233,3 +233,30 @@ body,html{
         height: 180px;
     }
 }
+
+
+/*Paperwork Tools Styles */
+
+#DutyReportsForm{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+input, textarea, select {
+    width: 200px;
+    padding: 5px;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    background-color: var(--bg-dark-quaternary);
+    color: var(--text-primary);
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.row{
+    display: flex;
+    gap: 20px;
+    justify-content: flex-start;
+
+}

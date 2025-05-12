@@ -3,15 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SADOC Tools</title>
-    <script src="./index.js" type="module"></script>
-    <link rel="stylesheet" href="./styles/styles.css">
+    <title>Duty Reports</title>
+    <script src="../index.js" type="module"></script>
+    <link rel="stylesheet" href="../styles/styles.css">
 </head>
 <body>
     <div class="container flex">
         <div class="sidebar">
             <div class="sidebar-header flex">
-                <img src="./img/DOC.png" alt="DOC Logo" width="40px"> 
+                <img src="../img/DOC.png" alt="DOC Logo" width="40px"> 
                 <h3>SADOC TOOLS</h3>
             </div>
             <hr>
@@ -87,53 +87,53 @@
 
         <div class="content">
             <div class="content-header">
-                <h1>San Andreas Department of Corrections Tools</h1>
+                <h1>Duty Reports</h1>
             </div>
 
-            <div class="content-body opening">
-                <h5>Welcome to the SADOC Tools website.</h>
-                <img src="./img/Prison.png" alt="" id="homePageImg">
+            <div class="content-body ">
+                <form action="" id="DutyReportsForm">
+                    <h3>Duty Report Details</h3>
 
-                <h5>This site was made to assist members of the San Andreas Department
-                    of Corrections with several paperwork items. If you experience any issues
-                    with the site, please contact <strong style="color: #007bff;">whoischilo</strong> on discord.
-                </h5>
+                    <div class="row">
+                        <div class="col">
+                            <label for="Date">Date of Report:</label>
+                        </div>
+                        <div class="col">
+                            <input type="date" name="DateOfReport" id="DateOfReport">
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col">
+                            <label for="StartOfShift">Start of Shift</label>
+                        </div>
+                        <div class="col">
+                            <input type="time" name="StartOfShift" id="StartOfShift">
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col">
+                            <label for="10-15s">10-15s Processed</label>
+                        </div>
+                        <div class="col">
+                            <input type="number" name="10-15s" id="10-15s">
+                        </div>
+                        <div class="col">
+                            <button id="10-15Counter">+</button>
+                        </div>
+                    </div>
+
+                    <h3>General Duty Logs</h3>
+                    <div id="DutyLogsContainer">
+                        <!--Logs will go here.-->
+                    </div>
+
+
+                </form>
             </div>
 
-            <div class="content-body quickAccess ">
-                <h3>Quick Access</h3>
-
-                <!--Quick Access Cards-->
-
-                <div class="cards-container flex">
-                    <div class="card flex">
-                        <div class="card-header">
-                            <h1>General Staff Reports</h1>
-                            <p>Duty, Solitary, Code 1, force 6</p>
-                        </div>
-                        <button class="btn btn-open">Open</button>
-                    </div>
-    
-                    <div class="card flex">
-                        <div class="card-header">
-                            <h1>Supervisor Reports</h1>
-                            <p>Duty,Charge,Warrent,Arrest,Punishment</p>
-                        </div>
-                        <button class="btn btn-open">Open</button>
-                    </div>
-    
-                    <div class="card flex">
-                        <div class="card-header">
-                            <h1>HR</h1>
-                            <p>Applications, Reinstatements, HR Logs</p>
-                        </div>
-                        <button class="btn btn-open">Open</button>
-                    </div>
-    
-                    
-                </div>
-
-            </div>
+            
 
 
     
