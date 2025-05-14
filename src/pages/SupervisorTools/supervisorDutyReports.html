@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Supervisor Duty Reports</title>
+    <script src="/src/index.js" type="module"></script>
+    <script src="/src/scripts/reports/supervisorDutyReports.js" type="module"></script>
+    <script src="/src/scripts/reports/dutyReports.js" type="module"></script>
+    <link rel="stylesheet" href="/src/styles/Global.css">
+    <link rel="stylesheet" href="/src/styles/Sidebar.css">
+    <link rel="stylesheet" href="/src/styles/reports/DutyReprots.css">
+</head>
+<body>
+    <div class="container flex">
+        <div class="sidebar">
+            <div class="sidebar-header flex">
+                <img src="/src/img/DOC.png" alt="DOC Logo" width="40px"> 
+                <h3>SADOC TOOLS</h3>
+            </div>
+            <hr>
+
+            <div class="sidebar-item">
+                <a href="/src/index.html"><h3>Home</h3></a>
+            </div>
+
+            <div class="sidebar-item dropdown-toggle dropdown-divisions">
+                <h3>Divisions</h3>
+            </div>
+
+            <!--Division Dropdown Items-->
+            <div class="dropdown d-none" id="divisions">
+                <div class="sidebar-item dropdown-item ">
+                    <h3>Human Resources </h3>
+                </div>
+
+                <div class="sidebar-item dropdown-item ">
+                    <h3>Correctional Field Training </h3>
+                </div>
+
+                <div class="sidebar-item dropdown-item ">
+                    <h3>Public Relations </h3>
+                </div>
+
+                <div class="sidebar-item dropdown-item">
+                    <h3>Grounds Keeping </h3>
+                </div>
+
+                <div class="sidebar-item dropdown-item ">
+                    <h3>C.E.R.T </h3>
+                </div>
+
+                <div class="sidebar-item dropdown-item ">
+                    <h3>Parole </h3>
+                </div>
+            </div>
+
+
+            <div class="sidebar-item">
+                <h3>Supervisor Tools</h3>
+            </div>
+
+            <div class="sidebar-item dropdown-toggle dropdown-ptools">
+                <h3>Paperwork Tools</h3>
+            </div>
+
+            <!--Paperwork Tools Dropdown items-->
+            <div class="dropdown d-none" id="paperWorkTools">
+                <div class="sidebar-item dropdown-item">
+                    <h3>Duty Reports</h3>
+                </div>
+
+                <div class="sidebar-item dropdown-item">
+                    <h3>Code 1 Reports</h3>
+                </div>
+
+                <div class="sidebar-item dropdown-item">
+                    <h3>Force 6 Reports</h3>
+                </div>
+
+                <div class="sidebar-item dropdown-item">
+                    <h3>Solitary Reports</h3>
+                </div>
+            </div>
+
+            <div class="sidebar-item">
+                <a href="https://gov.eclipse-rp.net/viewforum.php?f=660" target="_blank" class="sidebar-item"><h3>Government Website</h3></a>
+            </div>
+            
+        </div>
+
+        <div class="content">
+            <div class="content-header">
+                <h1>Supervisor Duty Reports</h1>
+            </div>
+
+            <div class="content-body ">
+                <form action="" id="DutyReportsForm">
+                    <h3>Duty Report Details</h3>
+
+                    <div class="form-group">
+                        <div class="label">
+                            <label for="Date">Date of Report:</label>
+                        </div>
+                        <div class="inputs">
+                            <input type="date" name="DateOfReport" id="DateOfReport">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="label">
+                            <label for="StartOfShift">Start of Shift:</label>
+                        </div>
+                        <div class="inputs">
+                            <input type="time" name="StartOfShift" id="StartOfShift">
+                        </div>
+                    </div>
+
+
+                    <div class="form-group">
+                        <div class="label">
+                            <label for="EndOfShift">End of Shift:</label>
+                        </div>
+                        <div class="inputs">
+                            <input type="time" name="EndOfShift" id="EndOfShift">
+                        </div>
+                    </div>
+
+                     <div class="duty-logs-section">
+                        <h3>Supervisor Duties/Situations</h3>
+                        <div id="SupervisorDutyLogsContainer" id="SupervisorDutiesLogs">
+                            <!--Logs will go here.-->
+                            <div class="duty-log" id="">
+                                <p>Did something cool today woo</p>
+                                <button type="button" class="deleteLogBtn">&times;</button>
+                            </div>
+                        </div>
+
+                        <div class="addLog flex">
+                            <input type="text" name="NewSupDutyLog" id="NewSupDutyLog" placeholder="Situations you took lead on, training you held, etc.">
+                            <button type="button" id="addSupDutyLogBtn">Add Log</button>
+                        </div>
+                    </div>
+                    <hr>
+
+                    <div class="duty-logs-section">
+                        <h3>Notable Officer Mentions:</h3>
+                        <div id="NotableOfficersContainer" id="NotableOfficers">
+                            <!--Notable Officers will go here.-->
+                            <div class="duty-log" id="">
+                                <p>Marc Ericsson - He was amazing</p>
+                                <button type="button" class="deleteLogBtn">&times;</button>
+                            </div>
+                        </div>
+
+                        <div class="addLog flex">
+                            <input type="text" name="NewNotableOfficer" id="NewNotableOfficer" placeholder="Officer that performed outstandingly during your watch, especially General Staff.">
+                            <button type="button" id="addNotableOfficersBtn">Add Log</button>
+                        </div>
+                    </div>
+                    <hr>
+
+                    <div class="duty-logs-section">
+                        <h3>General Duty Logs</h3>
+                        <div id="DutyLogsContainer" id="GeneralDutyLogs">
+                            <!--Logs will go here.-->
+                            <div class="duty-log" id="">
+                                <p>Did something cool today woo</p>
+                                <button type="button" class="deleteLogBtn">&times;</button>
+                            </div>
+                        </div>
+
+                        <div class="addLog flex">
+                            <input type="text" name="NewDutyLog" id="NewDutyLog" placeholder="General Duties performed during your watch">
+                            <button type="button" id="addDutyLogBtn">Add Log</button>
+                        </div>
+                    </div>
+                    <hr>
+
+                    <div class="duty-logs-section">
+                        <h3>Divisional Duty Logs</h3>
+                        <div id="DivisionalDutyLogs">
+                            <!--Logs will go here.-->
+                            <div class="duty-log" id="">
+                                <p>Did something cool today woo</p>
+                                <button type="button" class="deleteLogBtn">&times;</button>
+                            </div>
+                        </div>
+
+                        <div class="addLog flex">
+                            <input type="text" name="NewDivisionalLog" id="NewDivisionalLog" placeholder="Divisional Duties performed during your watch">
+                            <button type="button" id="addDivisionalLogBtn">Add Log</button>
+                        </div>
+                    </div>
+                </form>
+                <button id="GenerateOutput" style="margin-bottom: 10px;">Generate and Copy</button>
+                <div class="output">
+                    <h3>Output Will Go here</h3>
+                    <textarea type="textarea" readonly id="Output">
+                </div>
+            </div>
+
+            
+
+
+    
+
+        </div>
+    </div>
+</body>
+</html>

@@ -1,84 +1,62 @@
-import {DutyLog, DivisionalLog} from "./LogClasses.js"
-import { renderDutyLogs, renderDivLogs } from "./DOMstuff.js"
-import { dutyLogs, divLogs, retrieveData, storeData } from "./DataHandling.js"
-import {parseTime} from "./timeHandler.js"
+import {Log} from "../base/LogClasses.js"
+import { parseTime } from "../utils/timeHandler.js"
+import {supervisorLogs, retrieveData,dutyLogs,divLogs, storeData,notableOfficers} from "../utils/DataHandling.js"
+import {renderSupervisorDutyLogs, renderDivLogs, renderDutyLogs,renderNotableOfficers} from "../utils/DOMstuff.js"
 
-
-const dutyLogInput = document.getElementById("NewDutyLog")
-const addDutyLogBtn = document.getElementById("addDutyLogBtn")
-const divLogInput = document.getElementById("NewDivisionalLog")
-const addDivisionalLogBtn = document.getElementById("addDivisionalLogBtn")
+const SupdutyLogInput = document.getElementById("NewSupDutyLog")
+const addSupDutyLogBtn = document.getElementById("addSupDutyLogBtn")
+const notableOfficersInput = document.getElementById("NewNotableOfficer")
+const addNotableOfficerBtn = document.getElementById("addNotableOfficersBtn");
 const generateBtn= document.getElementById("GenerateOutput");
 
 retrieveData();
 renderDutyLogs();
+renderSupervisorDutyLogs();
+renderNotableOfficers();
 renderDivLogs();
 
 
+ function addSupDutyLog(){
+    let logText = SupdutyLogInput.value
 
-function addDutyLog(){
-    let logText = dutyLogInput.value
+    let log = new Log(logText);
 
-    let log = new DutyLog(logText);
+    supervisorLogs.push(log);
 
-    dutyLogs.push(log);
-
-    renderDutyLogs();
+    renderSupervisorDutyLogs();
     storeData();
 
-    dutyLogInput.value = "";
+    SupdutyLogInput.value = "";
 
 }
 
-function addDivLog(){
-    let logText = divLogInput.value;
+ function addNotableOfficer(){
+    let logText = notableOfficersInput.value
 
-    let log = new DivisionalLog(logText);
+    let log = new Log(logText);
 
-    divLogs.push(log);
+    notableOfficers.push(log);
 
-    renderDivLogs();
+    renderNotableOfficers();
     storeData();
 
-    divLogInput.value = "";
+    SupdutyLogInput.value = "";
 
 }
 
-export function deleteLog(logType, logID){
-    if(logType == "duty"){
-        let logtoDel = dutyLogs.find((log)=>{
-            if(log.id == logID)
-                return log;
-        })
-
-        let index = dutyLogs.indexOf(logtoDel);
-        dutyLogs.splice(index, 1);
-        storeData();
-        renderDutyLogs();
-    }else if(logType == "div"){
-        let logtoDel = divLogs.find((log)=>{
-            if(log.id == logID)
-                return log;
-        })
-
-        let index = divLogs.indexOf(logtoDel);
-        divLogs.splice(index, 1);
-        storeData();
-        renderDivLogs();
-    }
-}
 
 function generate(){
     const outputArea = document.getElementById("Output")
     let reportDate = document.getElementById("DateOfReport").value
     let startOfShift = document.getElementById("StartOfShift").value
-    let ten15s = document.getElementById("10-15s").value
     let endOfShift = document.getElementById("EndOfShift").value
     
     let dutyLogstxt = dutyLogs.map(log => "[*]" + log.text).join("\n");
     let divLogstxt = divLogs.map(log => "[*]" + log.text).join("\n");
+    let supLogsTxt = supervisorLogs.map(log => "[*]" +log.text).join("\n");
+    let noteOfficerstxt = notableOfficers.map(log => "[*]" +log.text).join("\n");
     
-     let startMinutes = parseTime(startOfShift);
+    let startMinutes = parseTime(startOfShift);
     let endMinutes = parseTime(endOfShift);
 
     // If end time is technically the next day (e.g., 12:44 PM after 9:44 PM), adjust:
@@ -102,7 +80,16 @@ function generate(){
 [ol][/ol]
 [hr]
 [ol][/ol]
-[b]10-15s Processed:[/b] ${ten15s}
+[b]Supervisor Duties/Situations:[/b]
+[list]
+${supLogsTxt}
+[/list]
+[hr]
+[ol][/ol]
+[b]Notable Officer Mentions:[/b] 
+[list]
+${noteOfficerstxt}
+[/list]
 [ol][/ol]
 [/divbox]
 [ol][/ol]
@@ -131,11 +118,13 @@ ${divLogstxt}
     //Clearing the saved logs
     dutyLogs.splice(0);
     divLogs.splice(0);
+    supervisorLogs.splice(0);
+    notableOfficers.splice(0);
     storeData();
-    window.open("https://gov.eclipse-rp.net/viewforum.php?f=1180","_blank");
+    //window.open("https://gov.eclipse-rp.net/viewforum.php?f=1180","_blank");
     
 }
 
 generateBtn.addEventListener("click", generate)
-addDutyLogBtn.addEventListener("click", addDutyLog);
-addDivisionalLogBtn.addEventListener("click",addDivLog);
+addSupDutyLogBtn.addEventListener("click", addSupDutyLog);
+addNotableOfficerBtn.addEventListener("click", addNotableOfficer)

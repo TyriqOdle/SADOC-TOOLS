@@ -1,4 +1,4 @@
-import dropDownCreator from "./scripts/dropDown.js";
+import dropDownCreator from "./scripts/utils/dropDown.js";
 
 
 const divisionsDropDown = document.getElementById("divisions")
