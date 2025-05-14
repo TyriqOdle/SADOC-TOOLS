@@ -1,5 +1,6 @@
 import dropDownCreator from "./scripts/dropDown.js";
 
+
 const divisionsDropDown = document.getElementById("divisions")
 const divisionsToggle = document.querySelector(".dropdown-toggle");
 
@@ -13,3 +14,4 @@ divisionsToggle.addEventListener("click", ()=>{
 pToolsTOggle.addEventListener("click", ()=>{
     dropDownCreator(pToolsDropDown);
 })
+

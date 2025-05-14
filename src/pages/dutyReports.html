@@ -5,7 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Duty Reports</title>
     <script src="../index.js" type="module"></script>
-    <link rel="stylesheet" href="../styles/styles.css">
+    <script src="../scripts/dutyReports.js" type="module"></script>
+    <link rel="stylesheet" href="../styles/Global.css">
+    <link rel="stylesheet" href="../styles/Sidebar.css">
+    <link rel="stylesheet" href="../styles/DutyReprots.css">
 </head>
 <body>
     <div class="container flex">
@@ -17,7 +20,7 @@
             <hr>
 
             <div class="sidebar-item">
-                <h3>Home</h3>
+                <a href="../index.html"><h3>Home</h3></a>
             </div>
 
             <div class="sidebar-item dropdown-toggle dropdown-divisions">
@@ -104,7 +107,7 @@
                     </div>
 
                     <div class="form-group">
-                        <div class=label">
+                        <div class="label">
                             <label for="StartOfShift">Start of Shift:</label>
                         </div>
                         <div class="inputs">
@@ -137,37 +140,37 @@
                             <!--Logs will go here.-->
                             <div class="duty-log" id="">
                                 <p>Did something cool today woo</p>
-                                <button class="deleteLogBtn">&times;</button>
+                                <button type="button" class="deleteLogBtn">&times;</button>
                             </div>
                         </div>
 
                         <div class="addLog flex">
                             <input type="text" name="NewDutyLog" id="NewDutyLog" placeholder="General Duties performed during your watch">
-                            <button id="addLogBtn">Add Log</button>
+                            <button type="button" id="addDutyLogBtn">Add Log</button>
                         </div>
                     </div>
                     <hr>
 
                     <div class="duty-logs-section">
                         <h3>Divisional Duty Logs</h3>
-                        <div id="DutyLogsContainer" id="DivisionalDutyLogs">
+                        <div id="DivisionalDutyLogs">
                             <!--Logs will go here.-->
                             <div class="duty-log" id="">
                                 <p>Did something cool today woo</p>
-                                <button class="deleteLogBtn">&times;</button>
+                                <button type="button" class="deleteLogBtn">&times;</button>
                             </div>
                         </div>
 
                         <div class="addLog flex">
-                            <input type="text" name="NewDutyLog" id="NewDutyLog" placeholder="Divisional Duties performed during your watch">
-                            <button id="addLogBtn">Add Log</button>
+                            <input type="text" name="NewDivisionalLog" id="NewDivisionalLog" placeholder="Divisional Duties performed during your watch">
+                            <button type="button" id="addDivisionalLogBtn">Add Log</button>
                         </div>
                     </div>
                 </form>
-                
+                <button id="GenerateOutput" style="margin-bottom: 10px;">Generate and Copy</button>
                 <div class="output">
                     <h3>Output Will Go here</h3>
-                    <input type="textarea" readonly id="Output">
+                    <textarea type="textarea" readonly id="Output">
                 </div>
             </div>
 

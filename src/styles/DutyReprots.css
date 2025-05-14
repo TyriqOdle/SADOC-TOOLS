@@ -1,0 +1,146 @@
+#DutyReportsForm {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 600px;
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.form-group .label label {
+    margin-bottom: 5px;
+    color: var(--text-secondary);
+    font-weight: 500;
+}
+
+input, textarea, select {
+    width: 100%;
+    max-width: 400px;
+    padding: 10px;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    background-color: var(--bg-dark-quaternary);
+    color: var(--text-primary);
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+input:focus, textarea:focus, select:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(21, 101, 192, 0.2);
+}
+
+.duty-logs-section {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.duty-logs-section h3 {
+    color: var(--text-secondary);
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 8px;
+}
+
+.duty-log {
+    background-color: var(--bg-dark-primary);
+    padding: 12px 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: 300;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    box-shadow: var(--shadow-subtle);
+    transition: transform 0.2s ease;
+}
+
+.duty-log:hover {
+    transform: translateX(5px);
+}
+
+.deleteLogBtn {
+    width: 30px;
+    height: 30px;
+    padding: 0;
+    background-color: rgba(255, 0, 0, 0.7);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s ease;
+}
+
+.deleteLogBtn:hover {
+    background-color: red;
+}
+
+.addLog {
+    gap: 15px;
+    align-items: center;
+}
+
+.addLog input {
+    flex-grow: 1;
+    max-width: none;
+}
+
+#addLogBtn {
+    width: 120px;
+}
+
+#Output {
+    min-width: 100%;    
+    text-align: start;
+    height: 250px;
+    padding: 15px;
+    margin-top: 15px;
+    background-color: var(--bg-dark-primary);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    resize: vertical;
+    width: 100%;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+    }
+    
+    .sidebar {
+        width: 100%;
+        min-height: auto;
+    }
+    
+    .content {
+        width: 100%;
+    }
+    
+    #DutyReportsForm {
+        width: 100%;
+        max-width: 100%;
+    }
+    
+    input, textarea, select {
+        max-width: 100%;
+    }
+}
+
+/* Additional subtle animations and hover effects */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.sidebar-item, .duty-log, .content-body {
+    animation: fadeIn 0.5s ease;
+}
