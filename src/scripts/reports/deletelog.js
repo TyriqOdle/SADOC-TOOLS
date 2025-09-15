@@ -1,9 +1,9 @@
-import { divLogs, supervisorLogs, dutyLogs, storeData, notableOfficers, code1Witnesses, force6Witnesses } from "../utils/DataHandling.js";
-import { renderDutyLogs, renderDivLogs, renderSupervisorDutyLogs, renderNotableOfficers, renderWitnesses } from "../utils/DOMstuff.js";
+import { divLogs, supervisorLogs, dutyLogs, storeData, notableOfficers, code1Witnesses, force6Witnesses, solitaryTenFifteens } from "../utils/DataHandling.js";
+import { renderDutyLogs, renderDivLogs, renderSupervisorDutyLogs, renderNotableOfficers, renderWitnesses, renderTenFifteens } from "../utils/DOMstuff.js";
 
 /**
  * Remove a log entry from the specified collection and update storage and UI.
- * @param {"duty"|"div"|"Supduty"|"noteOfficers"|"witness"|"force6Witness"} logType - The type of log list to modify.
+ * @param {"duty"|"div"|"Supduty"|"noteOfficers"|"witness"|"force6Witness"|"tenFifteens"} logType - The type of log list to modify.
  * @param {string} logID - The unique identifier of the log to delete.
  */
 export function deleteLog(logType, logID) {
@@ -67,6 +67,16 @@ export function deleteLog(logType, logID) {
         force6Witnesses.splice(index, 1);
         storeData();
         renderWitnesses(force6Witnesses, "force6Witness");
+    } else if (logType == "tenFifteens") {
+        let logtoDel = solitaryTenFifteens.find((log) => {
+            if (log.id == logID)
+                return log;
+        });
+
+        let index = solitaryTenFifteens.indexOf(logtoDel);
+        solitaryTenFifteens.splice(index, 1);
+        storeData();
+        renderTenFifteens();
     }
 }
 
