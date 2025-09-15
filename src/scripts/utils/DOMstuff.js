@@ -127,14 +127,17 @@ export function renderDivLogs() {
 }
 
 /**
- * Render Code 1 witness entries to the UI.
+ * Render witness entries to the UI.
+ * Defaults to Code 1 witnesses but can render other lists.
+ * @param {Array} witnessArr - collection of witness logs to render.
+ * @param {"witness"|"force6Witness"} deleteType - identifier passed to deleteLog.
  */
-export function renderWitnesses() {
+export function renderWitnesses(witnessArr = code1Witnesses, deleteType = "witness") {
     const witnessesContainer = document.getElementById("WitnessesContainer");
     if (!witnessesContainer) return;
     witnessesContainer.innerHTML = "";
 
-    code1Witnesses.forEach((log) => {
+    witnessArr.forEach((log) => {
         let witnessLog = document.createElement("div");
         let text = document.createElement("p");
         let deleteBtn = document.createElement("button");
@@ -148,7 +151,7 @@ export function renderWitnesses() {
 
         deleteBtn.addEventListener("click", (e) => {
             let logID = e.target.dataset.id;
-            deleteLog("witness", logID);
+            deleteLog(deleteType, logID);
         });
 
         witnessLog.appendChild(text);

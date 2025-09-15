@@ -7,6 +7,7 @@ export let divLogs = [];
 export let supervisorLogs = [];
 export let notableOfficers = [];
 export let code1Witnesses = [];
+export let force6Witnesses = [];
 
 /**
  * Load saved logs from localStorage into memory.
@@ -17,6 +18,7 @@ export function retrieveData() {
     const storedSupLogs = localStorage.getItem("supLogs");
     const storedNotableOfficers = localStorage.getItem("noteOfficers");
     const storedWitnesses = localStorage.getItem("code1Witnesses");
+    const storedForce6Witnesses = localStorage.getItem("force6Witnesses");
 
     if (storedDutyLogs) {
         dutyLogs = JSON.parse(storedDutyLogs);
@@ -45,6 +47,11 @@ export function retrieveData() {
     } else {
         code1Witnesses = [];
     }
+    if (storedForce6Witnesses) {
+        force6Witnesses = JSON.parse(storedForce6Witnesses);
+    } else {
+        force6Witnesses = [];
+    }
 }
 
 /**
@@ -56,5 +63,6 @@ export function storeData() {
     localStorage.setItem("supLogs", JSON.stringify(supervisorLogs));
     localStorage.setItem("noteOfficers", JSON.stringify(notableOfficers));
     localStorage.setItem("code1Witnesses", JSON.stringify(code1Witnesses));
+    localStorage.setItem("force6Witnesses", JSON.stringify(force6Witnesses));
 }
 
