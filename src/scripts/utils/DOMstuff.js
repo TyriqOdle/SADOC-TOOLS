@@ -1,4 +1,4 @@
-import { dutyLogs, divLogs, supervisorLogs, notableOfficers, code1Witnesses } from "./DataHandling.js";
+import { dutyLogs, divLogs, supervisorLogs, notableOfficers, code1Witnesses, solitaryTenFifteens } from "./DataHandling.js";
 import { deleteLog } from "../reports/deletelog.js";
 
 /**
@@ -158,6 +158,38 @@ export function renderWitnesses(witnessArr = code1Witnesses, deleteType = "witne
         witnessLog.appendChild(deleteBtn);
 
         witnessesContainer.appendChild(witnessLog);
+    });
+}
+
+/**
+ * Render 10-15 name entries to the UI.
+ */
+export function renderTenFifteens() {
+    const tenFifteensContainer = document.getElementById("TenFifteensContainer");
+    if (!tenFifteensContainer) return;
+    tenFifteensContainer.innerHTML = "";
+
+    solitaryTenFifteens.forEach((log) => {
+        let tenFifteenLog = document.createElement("div");
+        let text = document.createElement("p");
+        let deleteBtn = document.createElement("button");
+
+        tenFifteenLog.classList.add("duty-log");
+        text.textContent = log.text;
+        deleteBtn.classList.add("deleteLogBtn");
+        deleteBtn.setAttribute("data-id", log.id);
+        deleteBtn.type = "button";
+        deleteBtn.innerHTML = "&times;";
+
+        deleteBtn.addEventListener("click", (e) => {
+            let logID = e.target.dataset.id;
+            deleteLog("tenFifteens", logID);
+        });
+
+        tenFifteenLog.appendChild(text);
+        tenFifteenLog.appendChild(deleteBtn);
+
+        tenFifteensContainer.appendChild(tenFifteenLog);
     });
 }
 
