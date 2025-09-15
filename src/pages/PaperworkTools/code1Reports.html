@@ -1,34 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Code 1 Reports</title>
     <script src="/src/index.js" type="module"></script>
     <script src="/src/scripts/reports/code1Reports.js" type="module"></script>
-    <link rel="stylesheet" href="/src/styles/Global.css">
-    <link rel="stylesheet" href="/src/styles/Sidebar.css">
-    <link rel="stylesheet" href="/src/styles/reports/DutyReprots.css">
-</head>
-<body>
+    <link rel="stylesheet" href="/src/styles/Global.css" />
+    <link rel="stylesheet" href="/src/styles/Sidebar.css" />
+    <link rel="stylesheet" href="/src/styles/reports/DutyReprots.css" />
+  </head>
+  <body>
     <div class="container flex">
-        <div class="sidebar">
-            <div class="sidebar-header flex">
-                <img src="/src/img/DOC.png" alt="DOC Logo" width="40px"> 
-                <h3>SADOC TOOLS</h3>
-            </div>
-            <hr>
+      <div class="sidebar">
+        <div class="sidebar-header flex">
+          <img src="/src/img/DOC.png" alt="DOC Logo" width="40px" />
+          <h3>SADOC TOOLS</h3>
+        </div>
+        <hr />
 
-            <div class="sidebar-item">
-                <a href="/src/index.html"><h3>Home</h3></a>
-            </div>
+        <div class="sidebar-item">
+          <a href="/src/index.html"><h3>Home</h3></a>
+        </div>
 
-            <div class="sidebar-item dropdown-toggle dropdown-divisions">
-                <h3>Divisions</h3>
-            </div>
+        <!--Division Dropdown Items 
+        <div class="sidebar-item dropdown-toggle dropdown-divisions">
+          <h3>Divisions</h3>
+        </div>
 
-            <!--Division Dropdown Items-->
-            <div class="dropdown d-none" id="divisions">
+        <div class="dropdown d-none" id="divisions">
                 <div class="sidebar-item dropdown-item ">
                     <h3>Human Resources </h3>
                 </div>
@@ -52,33 +52,32 @@
                 <div class="sidebar-item dropdown-item ">
                     <h3>Parole </h3>
                 </div>
-            </div>
+            </div>-->
 
+        <div class="sidebar-item">
+          <h3>Supervisor Tools</h3>
+        </div>
 
-            <div class="sidebar-item">
-                <h3>Supervisor Tools</h3>
-            </div>
+        <div class="sidebar-item dropdown-toggle dropdown-ptools">
+          <h3>Paperwork Tools</h3>
+        </div>
 
-            <div class="sidebar-item dropdown-toggle dropdown-ptools">
-                <h3>Paperwork Tools</h3>
-            </div>
-
-            <!--Paperwork Tools Dropdown items-->
+       <!--Paperwork Tools Dropdown items-->
             <div class="dropdown d-none" id="paperWorkTools">
                 <div class="sidebar-item dropdown-item">
-                    <a href="./dutyReports.html"><h3>Duty Reports</h3></a>
+                    <a href="./pages/PaperworkTools/dutyReports.html"><h3>Duty Reports</h3></a>
                 </div>
 
                 <div class="sidebar-item dropdown-item">
-                    <h3>Code 1 Reports</h3>
+                    <a href="./pages/PaperworkTools/code1Reports.html"><h3>Code 1 Reports</h3></a>
                 </div>
 
                 <div class="sidebar-item dropdown-item">
-                    <a href="./force6Reports.html"><h3>Force 6 Reports</h3></a>
+                    <a href="./pages/PaperworkTools/force6Reports.html"><h3>Force 6 Reports</h3></a>
                 </div>
 
                 <div class="sidebar-item dropdown-item">
-                    <a href="./solitaryReports.html"><h3>Solitary Reports</h3></a>
+                    <a href="./pages/PaperworkTools/solitaryReports.html"><h3>Solitary Reports</h3></a>
                 </div>
             </div>
 
@@ -87,85 +86,92 @@
             </div>
             
         </div>
+      </div>
 
-        <div class="content">
-            <div class="content-header">
-                <h1>Code 1 Reports</h1>
-            </div>
-
-            <div class="content-body ">
-                <form action="" id="Code1ReportsForm">
-                    <h3>Code 1 Report Details</h3>
-
-                    <div class="form-group">
-                        <div class="label">
-                            <label for="DateTimeUTC">Date and Time (UTC):</label>
-                        </div>
-                        <div class="inputs">
-                            <input type="datetime-local" name="DateTimeUTC" id="DateTimeUTC">
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <div class="label">
-                            <label for="Name">Name:</label>
-                        </div>
-                        <div class="inputs">
-                            <input type="text" name="Name" id="Name">
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <div class="label">
-                            <label for="Rank">Rank:</label>
-                        </div>
-                        <div class="inputs">
-                            <input type="text" name="Rank" id="Rank">
-                        </div>
-                    </div>
-
-                    <div class="form-group duty-logs-section">
-                        <div class="label">
-                            <label for="NewWitness">Any witnesses? (Officers, other inmates, visitors)</label>
-                        </div>
-                        <div id="WitnessesContainer"></div>
-                        <div class="addLog flex">
-                            <input type="text" id="NewWitness" placeholder="Name of witness">
-                            <button type="button" id="addWitnessBtn">Add Witness</button>
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <div class="label">
-                            <label for="Situation">Situation:</label>
-                        </div>
-                        <div class="inputs">
-                            <textarea name="Situation" id="Situation" rows="5"></textarea>
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <div class="label">
-                            <label for="Conclusion">Conclusion:</label>
-                        </div>
-                        <div class="inputs">
-                            <textarea name="Conclusion" id="Conclusion"></textarea>
-                        </div>
-                    </div>
-                </form>
-                <button id="GenerateOutput" style="margin-bottom: 10px;">Generate and Copy</button>
-                <div class="output">
-                    <h3>Output Will Go here</h3>
-                    <textarea type="textarea" readonly id="Output"></textarea>
-                </div>
-            </div>
-
-
-
-
-
-
+      <div class="content">
+        <div class="content-header">
+          <h1>Code 1 Reports</h1>
         </div>
+
+        <div class="content-body">
+          <form action="" id="Code1ReportsForm">
+            <h3>Code 1 Report Details</h3>
+
+            <div class="form-group">
+              <div class="label">
+                <label for="DateTimeUTC">Date and Time (UTC):</label>
+              </div>
+              <div class="inputs">
+                <input
+                  type="datetime-local"
+                  name="DateTimeUTC"
+                  id="DateTimeUTC"
+                />
+              </div>
+            </div>
+
+            <div class="form-group">
+              <div class="label">
+                <label for="Name">Name:</label>
+              </div>
+              <div class="inputs">
+                <input type="text" name="Name" id="Name" />
+              </div>
+            </div>
+
+            <div class="form-group">
+              <div class="label">
+                <label for="Rank">Rank:</label>
+              </div>
+              <div class="inputs">
+                <input type="text" name="Rank" id="Rank" />
+              </div>
+            </div>
+
+            <div class="form-group duty-logs-section">
+              <div class="label">
+                <label for="NewWitness"
+                  >Any witnesses? (Officers, other inmates, visitors)</label
+                >
+              </div>
+              <div id="WitnessesContainer"></div>
+              <div class="addLog flex">
+                <input
+                  type="text"
+                  id="NewWitness"
+                  placeholder="Name of witness"
+                />
+                <button type="button" id="addWitnessBtn">Add Witness</button>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <div class="label">
+                <label for="Situation">Situation:</label>
+              </div>
+              <div class="inputs">
+                <textarea name="Situation" id="Situation" rows="5"></textarea>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <div class="label">
+                <label for="Conclusion">Conclusion:</label>
+              </div>
+              <div class="inputs">
+                <textarea name="Conclusion" id="Conclusion"></textarea>
+              </div>
+            </div>
+          </form>
+          <button id="GenerateOutput" style="margin-bottom: 10px">
+            Generate and Copy
+          </button>
+          <div class="output">
+            <h3>Output Will Go here</h3>
+            <textarea type="textarea" readonly id="Output"></textarea>
+          </div>
+        </div>
+      </div>
     </div>
-</body>
+  </body>
 </html>
