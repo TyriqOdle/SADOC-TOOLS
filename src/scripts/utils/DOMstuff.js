@@ -1,4 +1,4 @@
-import { dutyLogs, divLogs, supervisorLogs, notableOfficers } from "./DataHandling.js";
+import { dutyLogs, divLogs, supervisorLogs, notableOfficers, code1Witnesses } from "./DataHandling.js";
 import { deleteLog } from "../reports/deletelog.js";
 
 /**
@@ -123,6 +123,38 @@ export function renderDivLogs() {
         divLog.appendChild(deleteBtn);
 
         divLogsContainer.appendChild(divLog);
+    });
+}
+
+/**
+ * Render Code 1 witness entries to the UI.
+ */
+export function renderWitnesses() {
+    const witnessesContainer = document.getElementById("WitnessesContainer");
+    if (!witnessesContainer) return;
+    witnessesContainer.innerHTML = "";
+
+    code1Witnesses.forEach((log) => {
+        let witnessLog = document.createElement("div");
+        let text = document.createElement("p");
+        let deleteBtn = document.createElement("button");
+
+        witnessLog.classList.add("duty-log");
+        text.textContent = log.text;
+        deleteBtn.classList.add("deleteLogBtn");
+        deleteBtn.setAttribute("data-id", log.id);
+        deleteBtn.type = "button";
+        deleteBtn.innerHTML = "&times;";
+
+        deleteBtn.addEventListener("click", (e) => {
+            let logID = e.target.dataset.id;
+            deleteLog("witness", logID);
+        });
+
+        witnessLog.appendChild(text);
+        witnessLog.appendChild(deleteBtn);
+
+        witnessesContainer.appendChild(witnessLog);
     });
 }
 
