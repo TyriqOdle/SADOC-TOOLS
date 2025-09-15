@@ -1,8 +1,15 @@
+/**
+ * Utilities for persisting and retrieving log collections
+ * using the browser's localStorage.
+ */
 export let dutyLogs = [];
 export let divLogs = [];
 export let supervisorLogs = [];
-export let notableOfficers = []
+export let notableOfficers = [];
 
+/**
+ * Load saved logs from localStorage into memory.
+ */
 export function retrieveData() {
     const storedDutyLogs = localStorage.getItem("dutyLogs");
     const storedDivLogs = localStorage.getItem("divLogs");
@@ -10,7 +17,7 @@ export function retrieveData() {
     const storedNotableOfficers = localStorage.getItem("noteOfficers");
 
     if (storedDutyLogs) {
-        dutyLogs = JSON.parse(storedDutyLogs); 
+        dutyLogs = JSON.parse(storedDutyLogs);
     } else {
         dutyLogs = [];
     }
@@ -21,22 +28,25 @@ export function retrieveData() {
         divLogs = [];
     }
 
-    if(storedSupLogs){
+    if (storedSupLogs) {
         supervisorLogs = JSON.parse(storedSupLogs);
-    }else{
+    } else {
         supervisorLogs = [];
     }
-    if(storedNotableOfficers){
+    if (storedNotableOfficers) {
         notableOfficers = JSON.parse(storedNotableOfficers);
-    }else{
+    } else {
         notableOfficers = [];
     }
-
 }
 
+/**
+ * Persist current logs to localStorage.
+ */
 export function storeData() {
     localStorage.setItem("dutyLogs", JSON.stringify(dutyLogs));
     localStorage.setItem("divLogs", JSON.stringify(divLogs));
-    localStorage.setItem("supLogs",JSON.stringify(supervisorLogs));
-    localStorage.setItem("noteOfficers",JSON.stringify(notableOfficers));
+    localStorage.setItem("supLogs", JSON.stringify(supervisorLogs));
+    localStorage.setItem("noteOfficers", JSON.stringify(notableOfficers));
 }
+

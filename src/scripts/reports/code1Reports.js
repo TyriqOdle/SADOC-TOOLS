@@ -1,5 +1,12 @@
+/**
+ * Generates a formatted Code 1 report from form inputs
+ * and copies the result to the clipboard.
+ */
 const generateBtn = document.getElementById("GenerateOutput");
 
+/**
+ * Build the Code 1 report output and copy it to the clipboard.
+ */
 function generate() {
     const outputArea = document.getElementById("Output");
     const dateTime = document.getElementById("DateTimeUTC").value;
@@ -17,3 +24,4 @@ function generate() {
 }
 
 generateBtn.addEventListener("click", generate);
+
