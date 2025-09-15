@@ -308,31 +308,38 @@ button:active {
 
 
 /* Duty Reports Form Styles */
-#DutyReportsForm {
+form[id$="ReportsForm"] {
     display: flex;
     flex-direction: column;
     width: 100%;
-    max-width: 600px;
+    max-width: clamp(480px, 75%, 1200px);
     gap: 15px;
-    margin-bottom: 25px;
+    margin: 0 auto 25px;
 }
 
-.form-group {
+form[id$="ReportsForm"] .form-group {
     display: flex;
     flex-direction: column;
     gap: 8px;
+    width: 100%;
 }
 
-.form-group .label label {
+form[id$="ReportsForm"] .form-group .label label {
     margin-bottom: 5px;
     color: var(--text-secondary);
     font-weight: 500;
 }
 
-input, textarea, select {
+form[id$="ReportsForm"] .form-group .inputs {
     width: 100%;
-    max-width: 400px;
-    padding: 10px;
+}
+
+form[id$="ReportsForm"] input,
+form[id$="ReportsForm"] textarea,
+form[id$="ReportsForm"] select {
+    width: 100%;
+    max-width: 100%;
+    padding: 12px 14px;
     border: 1px solid var(--border);
     border-radius: 8px;
     background-color: var(--bg-dark-quaternary);
@@ -341,7 +348,9 @@ input, textarea, select {
     transition: all 0.3s ease;
 }
 
-input:focus, textarea:focus, select:focus {
+form[id$="ReportsForm"] input:focus,
+form[id$="ReportsForm"] textarea:focus,
+form[id$="ReportsForm"] select:focus {
     outline: none;
     border-color: var(--primary);
     box-shadow: 0 0 0 3px rgba(21, 101, 192, 0.2);
@@ -393,22 +402,27 @@ input:focus, textarea:focus, select:focus {
     background-color: red;
 }
 
-.addLog {
+form[id$="ReportsForm"] .addLog {
     gap: 15px;
     align-items: center;
+    width: 100%;
 }
 
-.addLog input {
-    flex-grow: 1;
+form[id$="ReportsForm"] .addLog input {
+    flex: 1 1 65%;
+    width: 100%;
     max-width: none;
 }
 
-#addLogBtn {
-    width: 120px;
+form[id$="ReportsForm"] .addLog button {
+    flex-shrink: 0;
+    width: auto;
+    min-width: 120px;
 }
 
 #Output {
-    width: 100%;    
+    width: 100%;
+    min-width: 100%;
     height: 250px;
     padding: 15px;
     margin-top: 15px;
@@ -416,6 +430,7 @@ input:focus, textarea:focus, select:focus {
     border: 1px solid var(--border);
     border-radius: 8px;
     resize: vertical;
+    text-align: start;
 }
 
 /* Responsive Adjustments */
@@ -433,13 +448,25 @@ input:focus, textarea:focus, select:focus {
         width: 100%;
     }
     
-    #DutyReportsForm {
+    form[id$="ReportsForm"] {
         width: 100%;
         max-width: 100%;
+        margin: 0 0 25px;
     }
-    
-    input, textarea, select {
+
+    form[id$="ReportsForm"] input,
+    form[id$="ReportsForm"] textarea,
+    form[id$="ReportsForm"] select {
         max-width: 100%;
+    }
+
+    form[id$="ReportsForm"] .addLog {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    form[id$="ReportsForm"] .addLog button {
+        width: 100%;
     }
 }
 
