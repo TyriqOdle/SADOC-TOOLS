@@ -167,6 +167,15 @@ button:active {
     height: 300px;
 }
 /*Quick Access Section */
+
+/*tenp */
+.quickAccess p{
+    font-size: 45px;
+    color: var(--text-secondary);
+    text-align: center;
+}
+
+
 .cards-container{
     justify-content: center;
     align-items: center;
