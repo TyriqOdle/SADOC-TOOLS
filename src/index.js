@@ -1,17 +1,19 @@
 import dropDownCreator from "./scripts/utils/dropDown.js";
 
-
-const divisionsDropDown = document.getElementById("divisions")
+/**
+ * Attach dropdown toggles for the main navigation sections.
+ */
+const divisionsDropDown = document.getElementById("divisions");
 const divisionsToggle = document.querySelector(".dropdown-toggle");
 
 const pToolsDropDown = document.getElementById("paperWorkTools");
 const pToolsTOggle = document.querySelector(".dropdown-ptools");
 
-divisionsToggle.addEventListener("click", ()=>{
+divisionsToggle.addEventListener("click", () => {
     dropDownCreator(divisionsDropDown);
-})
+});
 
-pToolsTOggle.addEventListener("click", ()=>{
+pToolsTOggle.addEventListener("click", () => {
     dropDownCreator(pToolsDropDown);
-})
+});
 
