@@ -12,9 +12,38 @@ const divLogInput = document.getElementById("NewDivisionalLog");
 const addDivisionalLogBtn = document.getElementById("addDivisionalLogBtn");
 const generateBtn = document.getElementById("GenerateOutput");
 
+// Duty report form fields
+const dateInput = document.getElementById("DateOfReport");
+const startInput = document.getElementById("StartOfShift");
+const ten15Input = document.getElementById("10-15s");
+const endInput = document.getElementById("EndOfShift");
+
+// Only run field persistence on the duty report page
+if (ten15Input) {
+    loadInputs();
+    dateInput.addEventListener("change", storeInputs);
+    startInput.addEventListener("change", storeInputs);
+    ten15Input.addEventListener("change", storeInputs);
+    endInput.addEventListener("change", storeInputs);
+}
+
 retrieveData();
 renderDutyLogs();
 renderDivLogs();
+
+function loadInputs() {
+    dateInput.value = localStorage.getItem("dutyDate") || "";
+    startInput.value = localStorage.getItem("dutyStart") || "";
+    ten15Input.value = localStorage.getItem("dutyTen15s") || "";
+    endInput.value = localStorage.getItem("dutyEnd") || "";
+}
+
+function storeInputs() {
+    localStorage.setItem("dutyDate", dateInput.value);
+    localStorage.setItem("dutyStart", startInput.value);
+    localStorage.setItem("dutyTen15s", ten15Input.value);
+    localStorage.setItem("dutyEnd", endInput.value);
+}
 
 /**
  * Add a new general duty log entry based on user input.
@@ -53,10 +82,10 @@ export function addDivLog() {
  */
 function generate() {
     const outputArea = document.getElementById("Output");
-    let reportDate = document.getElementById("DateOfReport").value;
-    let startOfShift = document.getElementById("StartOfShift").value;
-    let ten15s = document.getElementById("10-15s").value;
-    let endOfShift = document.getElementById("EndOfShift").value;
+    let reportDate = dateInput.value;
+    let startOfShift = startInput.value;
+    let ten15s = ten15Input.value;
+    let endOfShift = endInput.value;
 
     let dutyLogstxt = dutyLogs.map(log => "[*]" + log.text).join("\n");
     let divLogstxt = divLogs.map(log => "[*]" + log.text).join("\n");
@@ -114,10 +143,23 @@ function generate() {
     dutyLogs.splice(0);
     divLogs.splice(0);
     storeData();
+
+    // Clear stored inputs
+    localStorage.removeItem("dutyDate");
+    localStorage.removeItem("dutyStart");
+    localStorage.removeItem("dutyTen15s");
+    localStorage.removeItem("dutyEnd");
+
+    dateInput.value = "";
+    startInput.value = "";
+    ten15Input.value = "";
+    endInput.value = "";
     //window.open("https://gov.eclipse-rp.net/viewforum.php?f=1180","_blank");
 }
 
-generateBtn.addEventListener("click", generate);
+if (ten15Input) {
+    generateBtn.addEventListener("click", generate);
+}
 addDutyLogBtn.addEventListener("click", addDutyLog);
 addDivisionalLogBtn.addEventListener("click", addDivLog);
 

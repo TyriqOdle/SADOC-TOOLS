@@ -13,11 +13,33 @@ const notableOfficersInput = document.getElementById("NewNotableOfficer");
 const addNotableOfficerBtn = document.getElementById("addNotableOfficersBtn");
 const generateBtn = document.getElementById("GenerateOutput");
 
+// Supervisor duty report form fields
+const dateInput = document.getElementById("DateOfReport");
+const startInput = document.getElementById("StartOfShift");
+const endInput = document.getElementById("EndOfShift");
+
+loadInputs();
+dateInput.addEventListener("change", storeInputs);
+startInput.addEventListener("change", storeInputs);
+endInput.addEventListener("change", storeInputs);
+
 retrieveData();
 renderDutyLogs();
 renderSupervisorDutyLogs();
 renderNotableOfficers();
 renderDivLogs();
+
+function loadInputs() {
+    dateInput.value = localStorage.getItem("supDate") || "";
+    startInput.value = localStorage.getItem("supStart") || "";
+    endInput.value = localStorage.getItem("supEnd") || "";
+}
+
+function storeInputs() {
+    localStorage.setItem("supDate", dateInput.value);
+    localStorage.setItem("supStart", startInput.value);
+    localStorage.setItem("supEnd", endInput.value);
+}
 
 /**
  * Add a new supervisor duty log.
@@ -56,9 +78,9 @@ function addNotableOfficer() {
  */
 function generate() {
     const outputArea = document.getElementById("Output");
-    let reportDate = document.getElementById("DateOfReport").value;
-    let startOfShift = document.getElementById("StartOfShift").value;
-    let endOfShift = document.getElementById("EndOfShift").value;
+    let reportDate = dateInput.value;
+    let startOfShift = startInput.value;
+    let endOfShift = endInput.value;
 
     let dutyLogstxt = dutyLogs.map(log => "[*]" + log.text).join("\n");
     let divLogstxt = divLogs.map(log => "[*]" + log.text).join("\n");
@@ -129,6 +151,15 @@ function generate() {
     supervisorLogs.splice(0);
     notableOfficers.splice(0);
     storeData();
+    
+    // Clear stored inputs
+    localStorage.removeItem("supDate");
+    localStorage.removeItem("supStart");
+    localStorage.removeItem("supEnd");
+
+    dateInput.value = "";
+    startInput.value = "";
+    endInput.value = "";
     //window.open("https://gov.eclipse-rp.net/viewforum.php?f=1180","_blank");
 }
 
