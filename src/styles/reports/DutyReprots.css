@@ -63,6 +63,15 @@ input:focus, textarea:focus, select:focus {
     transition: transform 0.2s ease;
 }
 
+.duty-log p {
+    flex: 1;
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    margin-right: 10px;
+}
+
 .duty-log:hover {
     transform: translateX(5px);
 }
@@ -77,6 +86,7 @@ input:focus, textarea:focus, select:focus {
     align-items: center;
     justify-content: center;
     transition: background-color 0.3s ease;
+    flex-shrink: 0;
 }
 
 .deleteLogBtn:hover {
