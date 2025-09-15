@@ -124,12 +124,14 @@
                         </div>
                     </div>
 
-                    <div class="form-group">
+                    <div class="form-group duty-logs-section">
                         <div class="label">
-                            <label for="Witnesses">Any witnesses? (Officers, other inmates, visitors)</label>
+                            <label for="NewWitness">Any witnesses? (Officers, other inmates, visitors)</label>
                         </div>
-                        <div class="inputs">
-                            <textarea name="Witnesses" id="Witnesses"></textarea>
+                        <div id="WitnessesContainer"></div>
+                        <div class="addLog flex">
+                            <input type="text" id="NewWitness" placeholder="Name of witness">
+                            <button type="button" id="addWitnessBtn">Add Witness</button>
                         </div>
                     </div>
 
@@ -138,7 +140,7 @@
                             <label for="Situation">Situation:</label>
                         </div>
                         <div class="inputs">
-                            <textarea name="Situation" id="Situation"></textarea>
+                            <textarea name="Situation" id="Situation" rows="5"></textarea>
                         </div>
                     </div>
 
