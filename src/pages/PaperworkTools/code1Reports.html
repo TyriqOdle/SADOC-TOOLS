@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Duty Reports</title>
+    <title>Code 1 Reports</title>
     <script src="/src/index.js" type="module"></script>
-    <script src="/src/scripts/reports/dutyReports.js" type="module"></script>
+    <script src="/src/scripts/reports/code1Reports.js" type="module"></script>
     <link rel="stylesheet" href="/src/styles/Global.css">
     <link rel="stylesheet" href="/src/styles/Sidebar.css">
     <link rel="stylesheet" href="/src/styles/reports/DutyReprots.css">
@@ -66,11 +66,11 @@
             <!--Paperwork Tools Dropdown items-->
             <div class="dropdown d-none" id="paperWorkTools">
                 <div class="sidebar-item dropdown-item">
-                    <h3>Duty Reports</h3>
+                    <a href="./dutyReports.html"><h3>Duty Reports</h3></a>
                 </div>
 
                 <div class="sidebar-item dropdown-item">
-                    <a href="./code1Reports.html"><h3>Code 1 Reports</h3></a>
+                    <h3>Code 1 Reports</h3>
                 </div>
 
                 <div class="sidebar-item dropdown-item">
@@ -90,94 +90,78 @@
 
         <div class="content">
             <div class="content-header">
-                <h1>Duty Reports</h1>
+                <h1>Code 1 Reports</h1>
             </div>
 
             <div class="content-body ">
-                <form action="" id="DutyReportsForm">
-                    <h3>Duty Report Details</h3>
+                <form action="" id="Code1ReportsForm">
+                    <h3>Code 1 Report Details</h3>
 
                     <div class="form-group">
                         <div class="label">
-                            <label for="Date">Date of Report:</label>
+                            <label for="DateTimeUTC">Date and Time (UTC):</label>
                         </div>
                         <div class="inputs">
-                            <input type="date" name="DateOfReport" id="DateOfReport">
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <div class="label">
-                            <label for="StartOfShift">Start of Shift:</label>
-                        </div>
-                        <div class="inputs">
-                            <input type="time" name="StartOfShift" id="StartOfShift">
+                            <input type="datetime-local" name="DateTimeUTC" id="DateTimeUTC">
                         </div>
                     </div>
 
                     <div class="form-group">
                         <div class="label">
-                            <label for="10-15s">10-15s Processed:</label>
+                            <label for="Name">Name:</label>
                         </div>
                         <div class="inputs">
-                            <input type="number" name="10-15s" id="10-15s">
-                            
+                            <input type="text" name="Name" id="Name">
                         </div>
                     </div>
 
                     <div class="form-group">
                         <div class="label">
-                            <label for="EndOfShift">End of Shift:</label>
+                            <label for="Rank">Rank:</label>
                         </div>
                         <div class="inputs">
-                            <input type="time" name="EndOfShift" id="EndOfShift">
+                            <input type="text" name="Rank" id="Rank">
                         </div>
                     </div>
 
-                    <div class="duty-logs-section">
-                        <h3>General Duty Logs</h3>
-                        <div id="DutyLogsContainer" id="GeneralDutyLogs">
-                            <!--Logs will go here.-->
-                            <div class="duty-log" id="">
-                                <p>Did something cool today woo</p>
-                                <button type="button" class="deleteLogBtn">&times;</button>
-                            </div>
+                    <div class="form-group">
+                        <div class="label">
+                            <label for="Witnesses">Any witnesses? (Officers, other inmates, visitors)</label>
                         </div>
-
-                        <div class="addLog flex">
-                            <input type="text" name="NewDutyLog" id="NewDutyLog" placeholder="General Duties performed during your watch">
-                            <button type="button" id="addDutyLogBtn">Add Log</button>
+                        <div class="inputs">
+                            <textarea name="Witnesses" id="Witnesses"></textarea>
                         </div>
                     </div>
-                    <hr>
 
-                    <div class="duty-logs-section">
-                        <h3>Divisional Duty Logs</h3>
-                        <div id="DivisionalDutyLogs">
-                            <!--Logs will go here.-->
-                            <div class="duty-log" id="">
-                                <p>Did something cool today woo</p>
-                                <button type="button" class="deleteLogBtn">&times;</button>
-                            </div>
+                    <div class="form-group">
+                        <div class="label">
+                            <label for="Situation">Situation:</label>
                         </div>
+                        <div class="inputs">
+                            <textarea name="Situation" id="Situation"></textarea>
+                        </div>
+                    </div>
 
-                        <div class="addLog flex">
-                            <input type="text" name="NewDivisionalLog" id="NewDivisionalLog" placeholder="Divisional Duties performed during your watch">
-                            <button type="button" id="addDivisionalLogBtn">Add Log</button>
+                    <div class="form-group">
+                        <div class="label">
+                            <label for="Conclusion">Conclusion:</label>
+                        </div>
+                        <div class="inputs">
+                            <textarea name="Conclusion" id="Conclusion"></textarea>
                         </div>
                     </div>
                 </form>
                 <button id="GenerateOutput" style="margin-bottom: 10px;">Generate and Copy</button>
                 <div class="output">
                     <h3>Output Will Go here</h3>
-                    <textarea type="textarea" readonly id="Output">
+                    <textarea type="textarea" readonly id="Output"></textarea>
                 </div>
             </div>
 
-            
 
 
-    
+
+
 
         </div>
     </div>
