@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Force 6 Reports</title>
+    <title>Solitary Reports</title>
     <script src="/src/index.js" type="module"></script>
-    <script src="/src/scripts/reports/force6Reports.js" type="module"></script>
+    <script src="/src/scripts/reports/solitaryReports.js" type="module"></script>
     <link rel="stylesheet" href="/src/styles/Global.css">
     <link rel="stylesheet" href="/src/styles/Sidebar.css">
     <link rel="stylesheet" href="/src/styles/reports/DutyReprots.css">
@@ -54,7 +54,6 @@
                 </div>
             </div>
 
-
             <div class="sidebar-item">
                 <h3>Supervisor Tools</h3>
             </div>
@@ -74,11 +73,11 @@
                 </div>
 
                 <div class="sidebar-item dropdown-item">
-                    <h3>Force 6 Reports</h3>
+                    <a href="./force6Reports.html"><h3>Force 6 Reports</h3></a>
                 </div>
 
                 <div class="sidebar-item dropdown-item">
-                    <a href="./solitaryReports.html"><h3>Solitary Reports</h3></a>
+                    <h3>Solitary Reports</h3>
                 </div>
             </div>
 
@@ -90,93 +89,55 @@
 
         <div class="content">
             <div class="content-header">
-                <h1>Force 6 Reports</h1>
+                <h1>Solitary Reports</h1>
             </div>
 
             <div class="content-body ">
-                <form action="" id="Force6ReportsForm">
-                    <h3>Force 6 Report Details</h3>
+                <form action="" id="SolitaryReportsForm">
+                    <h3>Solitary Report Details</h3>
 
                     <div class="form-group">
                         <div class="label">
-                            <label for="Date">Date:</label>
+                            <label for="DateTime">Date and Time (UTC):</label>
                         </div>
                         <div class="inputs">
-                            <input type="date" name="Date" id="Date">
+                            <input type="datetime-local" name="DateTime" id="DateTime">
                         </div>
                     </div>
 
                     <div class="form-group">
                         <div class="label">
-                            <label for="OfficerName">Officers name:</label>
+                            <label for="NameRankBadge">Name, Rank, and Badge Number:</label>
                         </div>
                         <div class="inputs">
-                            <input type="text" name="OfficerName" id="OfficerName">
-                        </div>
-                    </div>
-
-                    <div class="form-group duty-logs-section">
-                        <div class="label">
-                            <label for="NewWitness">Any witnesses? (Officers, other inmates, visitors)</label>
-                        </div>
-                        <div id="WitnessesContainer"></div>
-                        <div class="addLog flex">
-                            <input type="text" id="NewWitness" placeholder="Name of witness">
-                            <button type="button" id="addWitnessBtn">Add Witness</button>
+                            <input type="text" name="NameRankBadge" id="NameRankBadge">
                         </div>
                     </div>
 
                     <div class="form-group">
                         <div class="label">
-                            <label for="RankBadge">Rank & Badge Number:</label>
+                            <label for="TenFifteens">10-15s Confined:</label>
                         </div>
                         <div class="inputs">
-                            <input type="text" name="RankBadge" id="RankBadge">
+                            <input type="number" name="TenFifteens" id="TenFifteens">
                         </div>
                     </div>
 
                     <div class="form-group">
                         <div class="label">
-                            <label for="Weapons">Lethal weapon(s) utilized for force 6:</label>
+                            <label for="TimeSentenced">Time Sentenced (Days):</label>
                         </div>
                         <div class="inputs">
-                            <input type="text" name="Weapons" id="Weapons">
+                            <input type="number" name="TimeSentenced" id="TimeSentenced">
                         </div>
                     </div>
 
                     <div class="form-group">
                         <div class="label">
-                            <label for="Situation">Situation:</label>
+                            <label for="Log">Log:</label>
                         </div>
                         <div class="inputs">
-                            <textarea name="Situation" id="Situation" rows="5"></textarea>
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <div class="label">
-                            <label for="Conclusion">Conclusion:</label>
-                        </div>
-                        <div class="inputs">
-                            <textarea name="Conclusion" id="Conclusion"></textarea>
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <div class="label">
-                            <label for="BodycamAttachment">Bodycam footage attachment:</label>
-                        </div>
-                        <div class="inputs">
-                            <input type="text" name="BodycamAttachment" id="BodycamAttachment">
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <div class="label">
-                            <label for="BodycamProof">Proof of Bodycam RP (image URL):</label>
-                        </div>
-                        <div class="inputs">
-                            <input type="text" name="BodycamProof" id="BodycamProof">
+                            <textarea name="Log" id="Log" rows="5"></textarea>
                         </div>
                     </div>
                 </form>
@@ -186,7 +147,6 @@
                     <textarea type="textarea" readonly id="Output"></textarea>
                 </div>
             </div>
-
         </div>
     </div>
 </body>
