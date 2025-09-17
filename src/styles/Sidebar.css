@@ -28,16 +28,28 @@
     height: 100%;
     background: linear-gradient(120deg, transparent, rgba(255,255,255,0.1), transparent);
     transition: all 0.6s;
+    pointer-events: none;
 }
 
 .sidebar-item:hover::before {
     left: 100%;
 }
 
-.sidebar-item a {
+.sidebar-item > a {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 100%;
     text-decoration: none;
     color: var(--light);
     padding: 0;
+    position: relative;
+    z-index: 1;
+}
+
+.sidebar-item > a h3 {
+    margin: 0;
+    width: 100%;
 }
 
 .sidebar-item:hover {
@@ -60,6 +72,29 @@
 
 .dropdown-item:hover {
     background-color: var(--bg-dark-quaternary);
+}
+
+.dropdown-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+}
+
+.dropdown-toggle h3 {
+    margin: 0;
+}
+
+.dropdown-toggle::after {
+    content: "\25B6";
+    margin-left: auto;
+    font-size: 0.85rem;
+    color: var(--light);
+    transition: transform 0.3s ease;
+}
+
+.dropdown-toggle.is-open::after {
+    transform: rotate(90deg);
 }
 
 .sidebar-header {
