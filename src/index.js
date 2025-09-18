@@ -70,6 +70,15 @@ const formatUtcValue = input => {
         return includeSeconds ? isoString.slice(0, 19) : isoString.slice(0, 16);
     }
 
+    if (type === "time") {
+        const includeSeconds = input.value ? input.value.length > 5 : false;
+        const hours = pad(date.getUTCHours());
+        const minutes = pad(date.getUTCMinutes());
+        const seconds = pad(date.getUTCSeconds());
+
+        return includeSeconds ? `${hours}:${minutes}:${seconds}` : `${hours}:${minutes}`;
+    }
+
     return null;
 };
 
@@ -81,7 +90,7 @@ const configureUtcButtons = () => {
         const input = document.getElementById(utcTarget);
         const type = input ? getInputType(input) : "";
 
-        if (!input || !(type === "date" || type === "datetime-local")) {
+        if (!input || !(type === "date" || type === "datetime-local" || type === "time")) {
             return;
         }
 

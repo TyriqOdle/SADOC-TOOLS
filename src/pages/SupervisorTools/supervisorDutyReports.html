@@ -137,8 +137,15 @@
               <div class="label">
                 <label for="StartOfShift">Start of Shift:</label>
               </div>
-              <div class="inputs">
+              <div class="inputs inputs--with-utc">
                 <input type="time" name="StartOfShift" id="StartOfShift" />
+                <button
+                  type="button"
+                  class="set-utc-btn"
+                  data-utc-target="StartOfShift"
+                >
+                  Set UTC
+                </button>
               </div>
             </div>
 
@@ -146,8 +153,15 @@
               <div class="label">
                 <label for="EndOfShift">End of Shift:</label>
               </div>
-              <div class="inputs">
+              <div class="inputs inputs--with-utc">
                 <input type="time" name="EndOfShift" id="EndOfShift" />
+                <button
+                  type="button"
+                  class="set-utc-btn"
+                  data-utc-target="EndOfShift"
+                >
+                  Set UTC
+                </button>
               </div>
             </div>
 
