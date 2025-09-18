@@ -80,6 +80,46 @@ button:active {
     border-bottom: 2px solid var(--primary);
 }
 
+.breadcrumbs {
+    margin-bottom: 12px;
+    font-size: 0.95rem;
+}
+
+.breadcrumbs ol {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    color: var(--text-secondary);
+}
+
+.breadcrumbs li {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.breadcrumbs li + li::before {
+    content: "/";
+    color: var(--text-secondary);
+}
+
+.breadcrumbs a {
+    color: var(--light);
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.breadcrumbs a:hover,
+.breadcrumbs a:focus {
+    color: var(--accent-teal);
+}
+
+.breadcrumbs [aria-current="page"] {
+    color: var(--light);
+    font-weight: 600;
+}
+
 .content-body {
     padding: 30px;
     background-color: var(--bg-dark-tertiary);
