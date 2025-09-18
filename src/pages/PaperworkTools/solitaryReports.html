@@ -110,8 +110,15 @@
               <div class="label">
                 <label for="DateTime">Date and Time (UTC):</label>
               </div>
-              <div class="inputs">
+              <div class="inputs inputs--with-utc">
                 <input type="datetime-local" name="DateTime" id="DateTime" />
+                <button
+                  type="button"
+                  class="set-utc-btn"
+                  data-utc-target="DateTime"
+                >
+                  Set UTC
+                </button>
               </div>
             </div>
 

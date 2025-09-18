@@ -24,6 +24,24 @@ form[id$="ReportsForm"] .form-group .inputs {
     width: 100%;
 }
 
+form[id$="ReportsForm"] .inputs--with-utc {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+form[id$="ReportsForm"] .inputs--with-utc > input,
+form[id$="ReportsForm"] .inputs--with-utc > textarea,
+form[id$="ReportsForm"] .inputs--with-utc > select {
+    flex: 1 1 auto;
+}
+
+form[id$="ReportsForm"] .inputs--with-utc > .set-utc-btn {
+    flex: 0 0 auto;
+    white-space: nowrap;
+}
+
 form[id$="ReportsForm"] input,
 form[id$="ReportsForm"] textarea,
 form[id$="ReportsForm"] select {
