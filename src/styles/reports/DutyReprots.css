@@ -28,13 +28,14 @@ form[id$="ReportsForm"] .inputs--with-utc {
     display: flex;
     gap: 8px;
     align-items: center;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
 }
 
 form[id$="ReportsForm"] .inputs--with-utc > input,
 form[id$="ReportsForm"] .inputs--with-utc > textarea,
 form[id$="ReportsForm"] .inputs--with-utc > select {
     flex: 1 1 auto;
+    min-width: 0;
 }
 
 form[id$="ReportsForm"] .inputs--with-utc > .set-utc-btn {
