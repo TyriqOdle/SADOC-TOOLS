@@ -121,8 +121,15 @@
               <div class="label">
                 <label for="Date">Date of Report:</label>
               </div>
-              <div class="inputs">
+              <div class="inputs inputs--with-utc">
                 <input type="date" name="DateOfReport" id="DateOfReport" />
+                <button
+                  type="button"
+                  class="set-utc-btn"
+                  data-utc-target="DateOfReport"
+                >
+                  Set UTC
+                </button>
               </div>
             </div>
 
